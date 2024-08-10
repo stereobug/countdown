@@ -7,14 +7,34 @@ body {
 }
 
 .outer-box {
-  /* position: ; */
+  /* margin: auto; */
   background-color: rgb(13, 0, 255);
-  border: solid;
+  /* border: solid; */
+  margin-top: 5vh;
+  /* width: 75%; */
 }
+
+/* .box {
+  position: relative; /* Required to position the button relative to this box */
 
 .target-selection-holder {
   background-color: aqua;
+  padding-top: 0.1vh;
+  position: relative;
   /* border: 80vh, solid; */
+}
+
+#calc-button {
+  width: 30px; /* Set desired width */
+  height: 30px; /* Set desired height to make it round */
+  border-radius: 50%; /* Makes the button round */
+  position: absolute; /* Allows for positioning within the box */
+  bottom: 10px; /* Position 10px from the bottom */
+  left: 10px; /* Position 10px from the left */
+  background-color: silver; /* Example color */
+  /* color: rgba(255, 255, 255, 0.375); Example text color */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Changes cursor on hover */
 }
 
 .digit-one,
@@ -39,6 +59,7 @@ body {
   display: flex;
   flex-direction: row; /* default value */
   justify-content: center;
+  margin-bottom: 0.5vh;
 }
 
 .selection {
