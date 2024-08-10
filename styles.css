@@ -42,6 +42,13 @@ body {
 .digit-three {
   height: 12vh;
   width: 12vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 8vw;
+  /* text-align: center;
+  vertical-align: middle; */
   border-top: var(--target-border-size) solid gray;
   border-bottom: var(--target-border-size) solid gray;
   background-color: rgb(63, 63, 223);
