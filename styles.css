@@ -1,0 +1,67 @@
+:root {
+  --target-border-size: 10px;
+}
+
+body {
+  background-color: blue;
+}
+
+.outer-box {
+  /* position: ; */
+  background-color: rgb(13, 0, 255);
+  border: solid;
+}
+
+.target-selection-holder {
+  background-color: aqua;
+  /* border: 80vh, solid; */
+}
+
+.digit-one,
+.digit-two,
+.digit-three {
+  height: 12vh;
+  width: 12vw;
+  border-top: var(--target-border-size) solid gray;
+  border-bottom: var(--target-border-size) solid gray;
+  background-color: rgb(63, 63, 223);
+}
+
+.digit-one {
+  border-left: var(--target-border-size) solid gray;
+}
+
+.digit-three {
+  border-right: var(--target-border-size) solid gray;
+}
+
+.target {
+  display: flex;
+  flex-direction: row; /* default value */
+  justify-content: center;
+}
+
+.selection {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+  padding-bottom: 2vh;
+}
+
+.select {
+  height: 12vh;
+  width: 12vw;
+  border-top: var(--target-border-size) solid black;
+  /* border-bottom: var(--target-border-size) solid gray; */
+  background-color: rgb(63, 63, 223);
+}
+
+.board {
+  /* display: flex; */
+  width: calc(100% - 2vw);
+  margin: auto;
+  justify-content: center;
+  background-color: azure;
+  margin-top: 2vh;
+  height: 50vh;
+}
