@@ -53,6 +53,7 @@ body {
 .digit-one,
 .digit-two,
 .digit-three {
+  font-family: "Gill Sans", "Arial", sans-serif;
   height: 12vh;
   width: 12vw;
   display: flex;
@@ -82,19 +83,25 @@ body {
   margin-bottom: 0.5vh;
 }
 
-.selection {
+.num-cards-container {
   display: flex;
   justify-content: center;
   gap: 1vw;
   padding-bottom: 2vh;
 }
 
-.select {
+.num-card {
+  font-family: "Gill Sans", "Arial", sans-serif;
   height: 12vh;
   width: 12vw;
   border-top: var(--target-border-size) solid black;
   /* border-bottom: var(--target-border-size) solid gray; */
   background-color: rgb(63, 63, 223);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 8vw;
 }
 
 .board {

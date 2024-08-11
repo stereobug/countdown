@@ -36,28 +36,43 @@ const genNum = (topVal, bottomVal) => {
     let spliced = bottomArr.splice(idx, 1);
     nums.push(spliced[0]);
   }
-  target();
   return nums;
+};
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const renderNums = async (nums) => {
+  let numCards = document.getElementsByClassName("num-card");
+  // run loop in reverse so numbers are populated from right -> left
+  for (i = numCards.length - 1; i > -1; i--) {
+    numCards[i].innerHTML = nums.pop();
+    await delay(500);
+  }
+  target();
 };
 
 document.getElementById("top-one").addEventListener("click", () => {
   const nums = genNum(1, 5);
   console.log(nums);
+  renderNums(nums);
 });
 
 document.getElementById("top-two").addEventListener("click", () => {
   const nums = genNum(2, 4);
   console.log(nums);
+  renderNums(nums);
 });
 
 document.getElementById("top-three").addEventListener("click", () => {
   const nums = genNum(3, 3);
   console.log(nums);
+  renderNums(nums);
 });
 
 document.getElementById("top-four").addEventListener("click", () => {
   const nums = genNum(4, 2);
   console.log(nums);
+  renderNums(nums);
 });
 
 // document.getElementsByClassName().addEventListener();
