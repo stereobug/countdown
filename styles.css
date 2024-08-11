@@ -33,7 +33,7 @@ body {
 
 .target-selection-holder {
   background-color: aqua;
-  padding-top: 0.1vh;
+  padding: 0.1vh 1vw 0 1vw;
   position: relative;
   /* border: 80vh, solid; */
 }
