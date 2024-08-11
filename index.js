@@ -2,6 +2,21 @@ const randomNum = (min = 0, max = 999) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
+const setTargetDigitsHtml = (target) => {
+  const targetDigitOne = document.getElementsByClassName("digit-one")[0];
+  const targetDigitTwo = document.getElementsByClassName("digit-two")[0];
+  const targetDigitThree = document.getElementsByClassName("digit-three")[0];
+  if (target) {
+    targetDigitOne.innerHTML = target[0];
+    targetDigitTwo.innerHTML = target[1];
+    targetDigitThree.innerHTML = target[2];
+  } else {
+    targetDigitOne.innerHTML = "";
+    targetDigitTwo.innerHTML = "";
+    targetDigitThree.innerHTML = "";
+  }
+};
+
 const target = () => {
   const num = randomNum();
   // console.log(num);
@@ -17,9 +32,7 @@ const target = () => {
     }
   }
   // update the html display
-  document.getElementsByClassName("digit-one")[0].innerHTML = strNum[0];
-  document.getElementsByClassName("digit-two")[0].innerHTML = strNum[1];
-  document.getElementsByClassName("digit-three")[0].innerHTML = strNum[2];
+  setTargetDigitsHtml(strNum);
 };
 
 const genNum = (topVal, bottomVal) => {
@@ -43,36 +56,60 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const renderNums = async (nums) => {
   let numCards = document.getElementsByClassName("num-card");
-  // run loop in reverse so numbers are populated from right -> left
-  for (i = numCards.length - 1; i > -1; i--) {
-    numCards[i].innerHTML = nums.pop();
-    await delay(500);
+  if (nums) {
+    // run loop in reverse so numbers are populated from right -> left
+    for (i = numCards.length - 1; i > -1; i--) {
+      await delay(500);
+      numCards[i].innerHTML = nums.pop();
+      // await delay(500);
+    }
+    target();
+  } else {
+    for (i = numCards.length - 1; i > -1; i--) {
+      numCards[i].innerHTML = "";
+    }
   }
-  target();
 };
 
+const resetBoard = () => {
+  // no value as arg resets target
+  setTargetDigitsHtml();
+  // no value as arg resets nums
+  renderNums();
+};
+
+// one from the top
 document.getElementById("top-one").addEventListener("click", () => {
+  // reset if existing game
+  resetBoard();
   const nums = genNum(1, 5);
   console.log(nums);
   renderNums(nums);
 });
 
+// two from the top
 document.getElementById("top-two").addEventListener("click", () => {
+  // reset if existing game
+  resetBoard();
   const nums = genNum(2, 4);
   console.log(nums);
   renderNums(nums);
 });
 
+// three from the top
 document.getElementById("top-three").addEventListener("click", () => {
+  // reset if existing game
+  resetBoard();
   const nums = genNum(3, 3);
   console.log(nums);
   renderNums(nums);
 });
 
+// four from the top
 document.getElementById("top-four").addEventListener("click", () => {
+  // reset if existing game
+  resetBoard();
   const nums = genNum(4, 2);
   console.log(nums);
   renderNums(nums);
 });
-
-// document.getElementsByClassName().addEventListener();
