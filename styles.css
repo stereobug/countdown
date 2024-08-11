@@ -12,6 +12,20 @@ body {
   /* border: solid; */
   margin-top: 5vh;
   /* width: 75%; */
+  width: 800px;
+  margin: auto;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vh;
+}
+
+.top-one,
+.top-tow,
+.top-three,
+.top-four {
 }
 
 /* .box {
@@ -24,18 +38,17 @@ body {
   /* border: 80vh, solid; */
 }
 
-#calc-button {
-  width: 30px; /* Set desired width */
-  height: 30px; /* Set desired height to make it round */
-  border-radius: 50%; /* Makes the button round */
-  position: absolute; /* Allows for positioning within the box */
-  bottom: 10px; /* Position 10px from the bottom */
-  left: 10px; /* Position 10px from the left */
-  background-color: silver; /* Example color */
-  /* color: rgba(255, 255, 255, 0.375); Example text color */
-  border: none; /* Removes default border */
-  cursor: pointer; /* Changes cursor on hover */
-}
+/* #calc-button {
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%; 
+  position: absolute; 
+  bottom: 10px; 
+  left: 10px; 
+  background-color: silver; 
+  border: none; 
+  cursor: pointer; 
+} */
 
 .digit-one,
 .digit-two,
