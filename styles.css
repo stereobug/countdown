@@ -126,4 +126,9 @@ body {
   background-color: azure;
   margin-top: 2vh;
   height: 50vh;
+  /* grid background */
+  background-image: linear-gradient(gray 1px, transparent 1px),
+    linear-gradient(90deg, gray 1px, transparent 1px);
+  background-size: 50px 50px; /* Adjust size of the grid */
+  border: 1px solid gray;
 }

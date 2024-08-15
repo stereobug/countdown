@@ -54,31 +54,32 @@ const genNum = (topVal, bottomVal) => {
   return nums;
 };
 
-const renderBoard = (solution, target) => {
+const renderBoard = (solution, result, exact = false) => {
   // populate the board
+  if (solution && !exact) {
+    solution = "Closest answer <br>" + solution;
+  }
+  // } else if (solution && exact) {
+  //   solution = "Exact answer <br>" + solution;
+  // }
   if (solution) {
     const board = document.getElementById("board");
-    board.innerHTML = solution + " = " + target;
+    board.innerHTML = solution + " = " + result;
   } else {
     board.innerHTML = "";
   }
 };
 
 const solve = (nums, target) => {
-  // if (nums && target) {
   solverRun(nums, target, null, (result) => {
     // "result" is the return val from solverRun, which is then passed into this anonymous callback
+    const exact = result.isSuccessful();
+    const res = result.getSolution().getValue();
     const solution = result.getSolution().toString();
     console.log(result);
     console.log("Solution:", solution);
-    renderBoard(solution, target);
-    // // populate the board
-    // const board = document.getElementById("board");
-    // board.innerHTML = solution + " = " + target;
+    renderBoard(solution, res, exact);
   });
-  // } else {
-  //   board.innerHTML = "";
-  // }
 };
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
