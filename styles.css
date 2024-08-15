@@ -112,8 +112,14 @@ body {
   font-size: 8vw;
 }
 
-.board {
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+#board {
   /* display: flex; */
+  font-family: "Indie Flower", cursive;
+  padding-top: 5vh;
+  padding-left: 10vw;
+  font-size: xx-large;
   width: calc(100% - 2vw);
   margin: auto;
   justify-content: center;

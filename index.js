@@ -54,15 +54,31 @@ const genNum = (topVal, bottomVal) => {
   return nums;
 };
 
+const renderBoard = (solution, target) => {
+  // populate the board
+  if (solution) {
+    const board = document.getElementById("board");
+    board.innerHTML = solution + " = " + target;
+  } else {
+    board.innerHTML = "";
+  }
+};
+
 const solve = (nums, target) => {
+  // if (nums && target) {
   solverRun(nums, target, null, (result) => {
-    // if (result) {
-    // console.log(typeof result);
-    // console.log(result);
-    // console.dir(result);
-    console.log("Solution:", result.getSolution().toString());
-    // }
+    // "result" is the return val from solverRun, which is then passed into this anonymous callback
+    const solution = result.getSolution().toString();
+    console.log(result);
+    console.log("Solution:", solution);
+    renderBoard(solution, target);
+    // // populate the board
+    // const board = document.getElementById("board");
+    // board.innerHTML = solution + " = " + target;
   });
+  // } else {
+  //   board.innerHTML = "";
+  // }
 };
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -94,6 +110,8 @@ const resetBoard = () => {
   setTargetDigitsHtml();
   // no value as arg resets nums
   renderNums();
+  // clear board
+  renderBoard();
 };
 
 // one from the top
