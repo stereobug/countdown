@@ -53,6 +53,8 @@ body {
 .digit-one,
 .digit-two,
 .digit-three {
+  /* TODO: update width with media query */
+  max-width: 90px;
   font-family: "Gill Sans", "Arial", sans-serif;
   height: 12vh;
   width: 12vw;
@@ -88,6 +90,12 @@ body {
   justify-content: center;
   gap: 1vw;
   padding-bottom: 2vh;
+  /* so text doesn't overgrow */
+  /* max-width: 100%;
+  font-size: clamp(8px, 2vw, 8px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
 }
 
 .num-card {

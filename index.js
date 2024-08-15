@@ -17,7 +17,7 @@ const setTargetDigitsHtml = (target) => {
   }
 };
 
-const target = () => {
+const setTarget = () => {
   const num = randomNum();
   // console.log(num);
   let strNum = num.toString();
@@ -33,6 +33,8 @@ const target = () => {
   }
   // update the html display
   setTargetDigitsHtml(strNum);
+  // give nums back to solver
+  return strNum;
 };
 
 const genNum = (topVal, bottomVal) => {
@@ -52,6 +54,17 @@ const genNum = (topVal, bottomVal) => {
   return nums;
 };
 
+const solve = (nums, target) => {
+  solverRun(nums, target, null, (result) => {
+    // if (result) {
+    // console.log(typeof result);
+    // console.log(result);
+    // console.dir(result);
+    console.log("Solution:", result.getSolution().toString());
+    // }
+  });
+};
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const renderNums = async (nums) => {
@@ -60,10 +73,15 @@ const renderNums = async (nums) => {
     // run loop in reverse so numbers are populated from right -> left
     for (i = numCards.length - 1; i > -1; i--) {
       await delay(500);
-      numCards[i].innerHTML = nums.pop();
+      // numCards[i].innerHTML = nums.pop();
       // await delay(500);
+      numCards[i].innerHTML = nums[i];
     }
-    target();
+    let target = setTarget();
+    // need timer here
+    //
+    // solve
+    solve(nums, target);
   } else {
     for (i = numCards.length - 1; i > -1; i--) {
       numCards[i].innerHTML = "";
